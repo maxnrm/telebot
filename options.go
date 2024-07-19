@@ -55,37 +55,37 @@ func Placeholder(text string) *SendOptions {
 // and re-using it somewhere or be using Option flags instead.
 type SendOptions struct {
 	// If the message is a reply, original message.
-	ReplyTo *Message
+	ReplyTo *Message `json:"reply_to,omitempty"`
 
 	// See ReplyMarkup struct definition.
-	ReplyMarkup *ReplyMarkup
+	ReplyMarkup *ReplyMarkup `json:"reply_markup,omitempty"`
 
 	// For text messages, disables previews for links in this message.
-	DisableWebPagePreview bool
+	DisableWebPagePreview bool `json:"disable_web_page_preview,omitempty"`
 
 	// Sends the message silently. iOS users will not receive a notification, Android users will receive a notification with no sound.
-	DisableNotification bool
+	DisableNotification bool `json:"disable_notification,omitempty"`
 
 	// ParseMode controls how client apps render your message.
-	ParseMode ParseMode
+	ParseMode ParseMode `json:"parse_mode,omitempty"`
 
 	// Entities is a list of special entities that appear in message text, which can be specified instead of parse_mode.
-	Entities Entities
+	Entities Entities `json:"entities,omitempty"`
 
 	// AllowWithoutReply allows sending messages not a as reply if the replied-to message has already been deleted.
-	AllowWithoutReply bool
+	AllowWithoutReply bool `json:"allow_without_reply,omitempty"`
 
 	// Protected protects the contents of sent message from forwarding and saving.
-	Protected bool
+	Protected bool `json:"protected,omitempty"`
 
 	// ThreadID supports sending messages to a thread.
-	ThreadID int
+	ThreadID int `json:"thread_id,omitempty"`
 
 	// HasSpoiler marks the message as containing a spoiler.
-	HasSpoiler bool
+	HasSpoiler bool `json:"has_spoiler,omitempty"`
 
 	// ReplyParams Describes the message to reply to
-	ReplyParams *ReplyParams
+	ReplyParams *ReplyParams `json:"reply_params,omitempty"`
 }
 
 func (og *SendOptions) copy() *SendOptions {
