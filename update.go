@@ -104,6 +104,10 @@ func (b *Bot) ProcessContext(c Context) {
 			b.handle(OnVenue, c)
 			return
 		}
+		if m.Poll != nil {
+			b.handle(OnPoll, c)
+			return
+		}
 		if m.Game != nil {
 			b.handle(OnGame, c)
 			return
